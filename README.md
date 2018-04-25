@@ -179,7 +179,7 @@ function main has args: Santander 123 True
 
 ```python
 
-#module.py using config file given by command line argument
+#module.py using config file and giving the path as a command line argument
 
 #main module code goes here
 
@@ -209,7 +209,7 @@ if __name__ == '__main__':
 ```
 
 ```
->python module.py --config /path/to/your/config.ini
+>python module.py --config_path /path/to/your/config.ini
 
 function main has args: Santander 123 True
 ```
