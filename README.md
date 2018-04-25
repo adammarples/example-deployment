@@ -12,14 +12,22 @@ helpful reference: https://stackoverflow.com/a/30493366/1910565
 import argparse
 
 def func1():
+    """function that will be a part of your module, returns 1
+    """
     return 1 
 
 def func2():
+    """function that will be a part of your module, returns 2
+    """
     return 2 
 
 def main(client_name=None, client_id=None, dry_run=None):
+    """
+    this is the main code that you want to keep in one place, it is the core
+    of your module. This example just prints out its own arguments.
+
+    """
     print('function main has args:', client_name, client_id, dry_run)
-    pass
 
 
 if __name__ == '__main__':
@@ -58,7 +66,7 @@ import airflow
 
 from module import main
 
-dag =  airflow.models.DAG(
+dag = airflow.models.DAG(
     dag_id="example-dag",
     default_args={},
     )
