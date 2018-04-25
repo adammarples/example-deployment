@@ -28,7 +28,8 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    main(client_name=args.client_name,
+    main(
+        client_name=args.client_name,
         client_id=args.client_id,
         dry_run=args.dry_run,
     )
