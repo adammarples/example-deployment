@@ -51,9 +51,8 @@ if __name__ == '__main__':
 
 #### Command line
 
-```
->python module.py --client_name Santander --client_id 123 --dry_run
-
+```console
+$ python module.py --client_name Santander --client_id 123 --dry_run
 function main has args: Santander 123 True
 ```
 
@@ -84,9 +83,8 @@ task = airflow.operators.python_operator.PythonOperator(
 )
 ```
 
-```
->airflow run example-dag example-task-run-main
-
+```console
+$ airflow run example-dag example-task-run-main
 function main has args: Santander 123 True
 ```
 
@@ -123,9 +121,8 @@ class TestAccount(TestCase):
         pass
 ```
 
-```
->python -m unittest test_main
-
+```console
+$ python -m unittest test_main
 ----------------------------------------------------------------------
 Ran 2 tests in 0.001s
 
@@ -169,9 +166,8 @@ if __name__ == '__main__':
 ```
 
 
-```
->python module.py
-
+```console
+$ python module.py
 function main has args: Santander 123 True
 ```
 
@@ -208,9 +204,8 @@ if __name__ == '__main__':
     )
 ```
 
-```
->python module.py --config_path /path/to/your/config.ini
-
+```console
+$ python module.py --config_path /path/to/your/config.ini
 function main has args: Santander 123 True
 ```
 
