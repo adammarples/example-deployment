@@ -79,7 +79,6 @@ task = airflow.operators.python_operator.PythonOperator(
         'client_id': 123,
         'dry_run': True,        
     },               
-    dag=dag,
 )
 ```
 
