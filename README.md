@@ -93,7 +93,7 @@ function main has args: Santander 123 True
 # crontab -e
 
 # m h  dom mon dow   command
-0 1 * * * /bin/bash python module.py --client_name Santander --client_id 123
+0 1 * * * python module.py --client_name Santander --client_id 123
 ```
 
 #### Unit Tests
