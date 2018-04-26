@@ -33,7 +33,7 @@ def main(client_name=None, client_id=None, dry_run=None):
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', type=str,
+    parser.add_argument('--client_name', type=str,
                     help='A optional string argument')
     parser.add_argument('--client_id', type=str,
                     help='An optional string argument')
