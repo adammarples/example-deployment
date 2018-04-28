@@ -34,7 +34,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--client_name', type=str,
-                    help='A optional string argument')
+                    help='An optional string argument')
     parser.add_argument('--client_id', type=str,
                     help='An optional string argument')
     parser.add_argument('--dry_run', action='store_true',
@@ -54,6 +54,22 @@ if __name__ == '__main__':
 ```console
 $ python module.py --client_name Santander --client_id 123 --dry_run
 function main has args: Santander 123 True
+```
+
+#### Command line help flag -h
+
+```console
+$ python module.py -h
+usage: module.py [-h] [--client_name CLIENT_NAME] [--client_id CLIENT_ID]
+                 [--dry_run]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --client_name CLIENT_NAME
+                        An optional string argument
+  --client_id CLIENT_ID
+                        An optional string argument
+  --dry_run             A boolean switch
 ```
 
 #### Airflow
@@ -208,5 +224,49 @@ $ python module.py --config_path /path/to/your/config.ini
 function main has args: Santander 123 True
 ```
 
+#### Plac
 
-    
+```python
+"""
+example of module accepting command line arguments via plac.
+
+ref: https://github.com/micheles/plac/blob/0.9.6/doc/plac.pdf
+
+plac annotations are a 6-tuple of the form: (help, kind, abbrev, type, choices, metavar)
+
+"""
+
+import plac
+
+
+@plac.annotations(
+    client_name=('Client Name ie. Santander', 'positional', None, str),
+    client_id=('Client ID ie. 123', 'positional', None, int),
+    dry_run=('Dry run flag, True/False', 'flag', 'd', bool),
+)
+def main(client_name=None, client_id=None, dry_run=False):
+    print('function main has args:', client_name, client_id, dry_run)
+    pass
+
+
+if __name__ == '__main__':
+    plac.call(main)
+```
+
+```console
+$ python module.py Santander 123 -d
+function main has args: Santander 123 True
+```
+
+```console
+$ python module.py -h
+usage: module.py [-h] [-d] [client_name] [client_id]
+
+positional arguments:
+  client_name    Client Name ie. Santander
+  client_id      Client ID ie. 123
+
+optional arguments:
+  -h, --help     show this help message and exit
+  -d, --dry-run  Dry run flag, True/False
+```
